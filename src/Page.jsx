@@ -31,7 +31,7 @@ export default function Page() {
             </a>
             <a
               href="#"
-              class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-neutral-900 border border-neutral-700 rounded-lg hover:bg-neutral-700 focus:ring-4 focus:ring-neutral-900 dark:text-neutral-900 dark:border-neutral-200 dark:hover:bg-neutral-200 dark:focus:ring-neutral-300"
+              class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-neutral-900 border border-neutral-700 rounded-lg hover:bg-neutral-700 focus:ring-4 focus:ring-neutral-900 dark:text-neutral-900 dark:border-neutral-200 dark:hover:bg-orange-300 dark:focus:ring-neutral-300"
             >
               Hemen Satın Al
             </a>

@@ -5,6 +5,7 @@ export default {
     "./src/App.jsx",
     "./src/Header.jsx",
     "./src/Page.jsx",
+    "./src/Stats.jsx",
   ],
   theme: {
     extend: {},
