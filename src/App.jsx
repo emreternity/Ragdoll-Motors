@@ -5,7 +5,11 @@ import Header from "./Header.jsx";
 function App() {
   const [count, setCount] = useState(0);
 
-  return <></>;
+  return (
+    <body>
+      <Header />
+    </body>
+  );
 }
 
 export default App;
