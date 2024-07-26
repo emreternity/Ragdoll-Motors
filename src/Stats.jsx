@@ -1,10 +1,10 @@
 const stats = [
   {
     id: 1,
-    name: "Son yılda bizimle yeni aracına kavuştu",
-    value: "2537 Sürücü",
+    name: "Met their new vehicles through us",
+    value: "2537 Drivers",
   },
-  { id: 2, name: "Değerinde seçkin araç havuzumuz", value: "$70m" },
+  { id: 2, name: "Worth of high quality vehicle pool", value: "$70m" },
 ];
 
 export default function Stats() {

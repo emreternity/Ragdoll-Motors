@@ -29,20 +29,20 @@ import {
 
 const products = [
   {
-    name: "Amerikan Motorlar",
-    description: "V tipinden doğan heyecan!",
+    name: "American Bikes",
+    description: "Vs screamin' out excitement!",
     href: "#",
     icon: ChartPieIcon,
   },
   {
-    name: "Amerikan Arabalar",
-    description: "Bas gaza John bas gaza, kim tutar seni bas gaza.",
+    name: "American Cars",
+    description: "Hit the road Jack!",
     href: "#",
     icon: CursorArrowRaysIcon,
   },
   {
-    name: "JDM Arabalar",
-    description: "Hızlı ve Japon (biraz da öfkeli)",
+    name: "JDM Cars",
+    description: "Fast and Japanese (a little furious too)",
     href: "#",
     icon: FingerPrintIcon,
   },
@@ -59,7 +59,7 @@ export default function Header() {
       >
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
+            <span className="sr-only">Ragdoll Motors</span>
             <img alt="" src="../images/logo.svg" className="h-8 w-auto" />
           </a>
         </div>
@@ -76,7 +76,7 @@ export default function Header() {
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-              Araçlarımız
+              Vehicles
               <ChevronDownIcon
                 aria-hidden="true"
                 className="h-5 w-5 flex-none text-gray-400"
@@ -116,18 +116,18 @@ export default function Header() {
           </Popover>
 
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Bayilerimiz
+            Our Dealers
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Bizi Tanı
+            About Us
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            İletişim
+            Get in Touch
           </a>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Giriş yap <span aria-hidden="true">&rarr;</span>
+            Login <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </nav>
@@ -140,7 +140,7 @@ export default function Header() {
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
+              <span className="sr-only">Ragdoll Motors</span>
               <img alt="" src="../images/logo.svg" className="h-8 w-auto" />
             </a>
             <button
@@ -157,7 +157,7 @@ export default function Header() {
               <div className="space-y-2 py-6">
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                    Araçlarımız
+                    Vehicles
                     <ChevronDownIcon
                       aria-hidden="true"
                       className="h-5 w-5 flex-none group-data-[open]:rotate-180"
@@ -180,19 +180,19 @@ export default function Header() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Bayilerimiz
+                  Our Dealers
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Bizi Tanı
+                  About Us
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  İletişim
+                  Get in Touch
                 </a>
               </div>
               <div className="py-6">
@@ -200,7 +200,7 @@ export default function Header() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Giriş yap
+                  Login
                 </a>
               </div>
             </div>
