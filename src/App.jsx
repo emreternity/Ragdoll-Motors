@@ -11,7 +11,7 @@ import Contact from "./Contact.jsx";
 
 function App() {
   return (
-    <body>
+    <body id="bg">
       <Header />
       <Page />
       <Stats />

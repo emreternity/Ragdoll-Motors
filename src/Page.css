@@ -1,0 +1,15 @@
+.backtotopicon {
+  position: fixed;
+  bottom: 1.7rem;
+  right: 1.13rem;
+  font-size: 2.83rem;
+  color: #f1e1c8;
+  background-color: #ff5a1f;
+  border-radius: 50%;
+  transition: all 0.2s;
+  z-index: 99;
+}
+
+.backtotopicon:hover {
+  scale: 120%;
+}

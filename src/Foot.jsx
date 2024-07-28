@@ -9,12 +9,12 @@ import {
 
 export default function Foot() {
   return (
-    <Footer container>
-      <div className="w-full text-center mt-20">
+    <Footer container className="bg-orange-100">
+      <div className=" w-full text-center mt-10">
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
           <FooterBrand
             href="#"
-            src="../images/logo.svg"
+            src="../images/logoblack.svg"
             alt="Ragdoll Logo"
             name="Ragdoll Motors"
           />
