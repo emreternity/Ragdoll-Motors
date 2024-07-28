@@ -12,6 +12,7 @@ export default {
     "./src/Caro.jsx",
     "./src/Rate.jsx",
     "./src/ProductPage.jsx",
+    "./src/Contact.jsx",
     flowbite.content(),
   ],
   theme: {

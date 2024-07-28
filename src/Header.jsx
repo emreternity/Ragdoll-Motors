@@ -125,7 +125,7 @@ export default function Header() {
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Login <span aria-hidden="true">&rarr;</span>
+            Search <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </nav>
@@ -198,7 +198,7 @@ export default function Header() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Login
+                  Search
                 </a>
               </div>
             </div>
