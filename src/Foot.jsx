@@ -10,7 +10,7 @@ import {
 export default function Foot() {
   return (
     <Footer container>
-      <div className="w-full text-center">
+      <div className="w-full text-center mt-20">
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
           <FooterBrand
             href="#"

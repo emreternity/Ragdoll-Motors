@@ -3,9 +3,9 @@ import { Rating, RatingAdvanced, RatingStar } from "flowbite-react";
 export default function Rate() {
   return (
     <>
-      <div className="flex flex-row justify-evenly items-center">
-        <div>
-          <Rating className="mb-2">
+      <div className="flex flex-row justify-evenly items-center h-dvh scale-150">
+        <div className="w-dvw max-w-80">
+          <Rating className="mb-2 ">
             <RatingStar />
             <RatingStar />
             <RatingStar />

@@ -10,8 +10,8 @@ export default function Caro() {
         />
         <img src="../images/880948.jpg" alt="..." />
         <img src="../images/583260.jpg" alt="..." />
-        <img src="../images/3BNdNPR.png" alt="..." />
-        <img src="../images/b5i0043wsm0b1.jpg" alt="..." />
+        <img src="../images/880948.jpg" alt="..." />
+        <img src="../images/583260.jpg" alt="..." />
       </Carousel>
     </div>
   );

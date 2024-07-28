@@ -6,6 +6,7 @@ import Stats from "./Stats.jsx";
 import Foot from "./Foot.jsx";
 import Caro from "./Caro.jsx";
 import Rate from "./Rate.jsx";
+import ProductPage from "./ProductPage.jsx";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Page />
       <Stats />
       <Caro />
-      <Rate />
+      <ProductPage />
       <Foot />
     </body>
   );
