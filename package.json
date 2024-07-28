@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@coreui/coreui": "^5.1.0",
+    "@coreui/react": "^5.2.0",
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.5",
     "flag-icons": "^7.2.3",

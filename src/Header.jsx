@@ -1,6 +1,7 @@
 "use client";
 
 import "/node_modules/flag-icons/css/flag-icons.min.css";
+import "./Header.css";
 import { useState } from "react";
 import {
   Dialog,
@@ -49,11 +50,11 @@ const products = [
   },
 ];
 
-export default function Header() {
+export default function Header(props) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header>
+    <header className="bghead">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
@@ -61,7 +62,14 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Ragdoll Motors</span>
-            <img alt="" src="../images/logo.svg" className="h-8 w-auto" />
+            <img
+              onClick={() => {
+                props.handleClick("indexpg");
+              }}
+              alt=""
+              src="../images/logo.svg"
+              className="h-8 w-auto"
+            />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -75,20 +83,20 @@ export default function Header() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <Popover className="relative">
-            <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white">
+          <Popover className="relative ">
+            <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 hover:!text-orange-500 text-white ">
               Vehicles
               <ChevronDownIcon
                 aria-hidden="true"
-                className="h-5 w-5 flex-none text-white"
+                className="h-5 w-5 flex-none"
               />
             </PopoverButton>
 
             <PopoverPanel
               transition
-              className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl  shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+              className="absolute -left-8 top-full z-20 mt-3 w-screen max-w-md overflow-hidden rounded-3xl  shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
             >
-              <div className="p-4 bg-neutral-800">
+              <div className="p-4 bghead">
                 {products.map((item) => (
                   <div
                     key={item.name}
@@ -120,12 +128,18 @@ export default function Header() {
             Our Dealers
           </a>
           <a
+            onClick={() => {
+              props.handleClick("aboutpg");
+            }}
             href="#"
             className="text-sm font-semibold leading-6 text-white hover:text-orange-500"
           >
             About Us
           </a>
           <a
+            onClick={() => {
+              props.handleClick("gitpg");
+            }}
             href="#"
             className="text-sm font-semibold leading-6 text-white hover:text-orange-500"
           >
@@ -165,12 +179,12 @@ export default function Header() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                <Disclosure as="div" className="-mx-3">
+                <Disclosure as="div" className="-mx-3 ">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-white hover:bg-orange-500">
                     Vehicles
                     <ChevronDownIcon
                       aria-hidden="true"
-                      className="h-5 w-5 flex-none group-data-[open]:rotate-180"
+                      className="h-5 w-5 flex-none group-data-[open]:rotate-180 "
                     />
                   </DisclosureButton>
                   <DisclosurePanel className="mt-2 space-y-2">

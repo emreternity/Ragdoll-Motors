@@ -9,10 +9,10 @@ export default {
     "./src/Page.jsx",
     "./src/Stats.jsx",
     "./src/Foot.jsx",
-    "./src/Caro.jsx",
     "./src/Rate.jsx",
     "./src/ProductPage.jsx",
     "./src/Contact.jsx",
+    "./src/About.jsx",
     flowbite.content(),
   ],
   theme: {

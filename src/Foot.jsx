@@ -9,16 +9,16 @@ import {
 
 export default function Foot() {
   return (
-    <Footer container className="bg-orange-100">
-      <div className=" w-full text-center mt-10">
-        <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
+    <Footer container className="bghead">
+      <div className=" w-full text-center mt-10 ">
+        <div className="w-full justify-between sm:flex sm:items-center sm:justify-between ">
           <FooterBrand
+            className="text-white"
             href="#"
-            src="../images/logoblack.svg"
+            src="../images/logo.svg"
             alt="Ragdoll Logo"
-            name="Ragdoll Motors"
           />
-          <FooterLinkGroup>
+          <FooterLinkGroup className="!text-white">
             <FooterLink href="#">About Us</FooterLink>
             <FooterLink href="#">Privacy Policy</FooterLink>
             <FooterLink href="#">Licensing</FooterLink>
@@ -26,7 +26,12 @@ export default function Foot() {
           </FooterLinkGroup>
         </div>
         <FooterDivider />
-        <FooterCopyright href="#" by="Ragdoll Motors" year={2024} />
+        <FooterCopyright
+          className="text-white"
+          href="#"
+          by="Ragdoll Motors"
+          year={2024}
+        />
       </div>
     </Footer>
   );
