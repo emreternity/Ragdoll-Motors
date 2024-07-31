@@ -13,7 +13,8 @@ export default {
     "./src/pages/ContactUs/index.jsx",
     "./src/pages/AboutUs/index.jsx",
     "./index.html",
-    "./src/pages/Error/Error.jsx",
+    "./src/pages/Error/index.jsx",
+    "./src/pages/FAQ/index.jsx",
     flowbite.content(),
   ],
   theme: {
