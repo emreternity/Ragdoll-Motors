@@ -1,0 +1,5 @@
+.bgerror {
+  background-image: url("../../images/error.jpg");
+  background-position: center;
+  background-size: cover;
+}
