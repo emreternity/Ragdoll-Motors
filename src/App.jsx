@@ -1,12 +1,12 @@
 import "./assets/App.css";
 import { useState } from "react";
-import Header from "./Header.jsx";
+import Header from "./layouts/Header.jsx";
 import Page from "./Page.jsx";
 import Stats from "./Stats.jsx";
-import Foot from "./Foot.jsx";
+import Foot from "./layouts/Foot.jsx";
 import ProductPage from "./ProductPage.jsx";
 import Contact from "./Contact.jsx";
-import BackToTop from "./Backtotop.jsx";
+import BackToTop from "./layouts/Backtotop.jsx";
 import About from "./About.jsx";
 
 function App() {

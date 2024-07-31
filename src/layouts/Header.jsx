@@ -1,7 +1,7 @@
 "use client";
 
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-import "./assets/Header.css";
+import "../assets/Header.css";
 import { useState } from "react";
 import {
   Dialog,
