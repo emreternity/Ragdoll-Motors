@@ -1,4 +1,4 @@
-import "./assets/Page.css";
+import "../../assets/Homepage.css";
 
 export default function Page(props) {
   if (props.currPage === "indexpg") {
