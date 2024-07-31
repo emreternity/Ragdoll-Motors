@@ -1,13 +1,13 @@
-import "./App.css";
+import "./assets/App.css";
 import { useState } from "react";
-import Header from "./Header.jsx";
-import Page from "./Page.jsx";
-import Stats from "./Stats.jsx";
-import Foot from "./Foot.jsx";
-import ProductPage from "./ProductPage.jsx";
-import Contact from "./Contact.jsx";
-import BackToTop from "./Backtotop.jsx";
-import About from "./About.jsx";
+import Header from "./layouts/Header.jsx";
+import Page from "./pages/Homepage/index.jsx";
+import Stats from "./pages/Homepage/Stats.jsx";
+import Foot from "./layouts/Foot.jsx";
+import ProductPage from "./pages/ProductPage/ProductPage.jsx";
+import Contact from "./pages/ContactUs/index.jsx";
+import BackToTop from "./layouts/Backtotop.jsx";
+import About from "./pages/AboutUs/index.jsx";
 
 function App() {
   const [currPage, setPage] = useState("indexpg");
