@@ -7,10 +7,12 @@ import {
   FooterLinkGroup,
 } from "flowbite-react";
 
-export default function Foot() {
+import { Link } from "react-router-dom";
+
+export default function FooterFunct() {
   return (
-    <Footer container className="bghead">
-      <div className=" w-full text-center mt-10 ">
+    <Footer container className="bghead static bottom-0">
+      <div className=" w-full text-center ">
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between ">
           <FooterBrand
             className="text-white"
@@ -25,7 +27,6 @@ export default function Foot() {
             <FooterLink href="#">Contact</FooterLink>
           </FooterLinkGroup>
         </div>
-        <FooterDivider />
         <FooterCopyright
           className="text-white"
           href="#"
