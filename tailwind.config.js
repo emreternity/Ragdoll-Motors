@@ -3,16 +3,17 @@ const flowbite = require("flowbite-react/tailwind");
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./src/App.css",
+    "./src/assets/App.css",
     "./src/App.jsx",
-    "./src/Header.jsx",
-    "./src/Page.jsx",
-    "./src/Stats.jsx",
-    "./src/Foot.jsx",
-    "./src/Rate.jsx",
-    "./src/ProductPage.jsx",
-    "./src/Contact.jsx",
-    "./src/About.jsx",
+    "./src/layouts/components/Header.jsx",
+    "./src/pages/Homepage/index.jsx",
+    "./src/pages/Homepage/Stats.jsx",
+    "./src/layouts/components/Footer.jsx",
+    "./src/pages/ProductPage/index.jsx",
+    "./src/pages/ContactUs/index.jsx",
+    "./src/pages/AboutUs/index.jsx",
+    "./index.html",
+    "./src/pages/Error/Error.jsx",
     flowbite.content(),
   ],
   theme: {

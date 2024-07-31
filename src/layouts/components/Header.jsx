@@ -1,8 +1,11 @@
 "use client";
 
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-import "../assets/Header.css";
+import "../../assets/Header.css";
+
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+
 import {
   Dialog,
   DialogPanel,
@@ -60,17 +63,10 @@ export default function Header(props) {
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Ragdoll Motors</span>
-            <img
-              onClick={() => {
-                props.handleClick("indexpg");
-              }}
-              alt=""
-              src="../images/logo.svg"
-              className="h-8 w-auto"
-            />
-          </a>
+            <img alt="" src="../images/logo.svg" className="h-8 w-auto" />
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -106,13 +102,17 @@ export default function Header(props) {
                       <span className={`fi fi-${item.icon}`}></span>
                     </div>
                     <div className="flex-auto">
-                      <a
-                        href={item.href}
-                        className="block font-semibold text-white"
+                      <NavLink
+                        to="/error"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "scale-105 text-orange-500"
+                            : "text-sm font-semibold leading-6 text-white hover:text-orange-500"
+                        }
                       >
                         {item.name}
                         <span className="absolute inset-0" />
-                      </a>
+                      </NavLink>
                       <p className="mt-1 text-white">{item.description}</p>
                     </div>
                   </div>
@@ -121,30 +121,36 @@ export default function Header(props) {
             </PopoverPanel>
           </Popover>
 
-          <a
-            href="#"
-            className="text-sm font-semibold leading-6 text-white hover:text-orange-500"
+          <NavLink
+            to="/error"
+            className={({ isActive }) =>
+              isActive
+                ? "scale-105 text-orange-500"
+                : "text-sm font-semibold leading-6 text-white hover:text-orange-500"
+            }
           >
             Our Dealers
-          </a>
-          <a
-            onClick={() => {
-              props.handleClick("aboutpg");
-            }}
-            href="#"
-            className="text-sm font-semibold leading-6 text-white hover:text-orange-500"
+          </NavLink>
+          <NavLink
+            to="/about-us"
+            className={({ isActive }) =>
+              isActive
+                ? "scale-105 text-orange-500"
+                : "text-sm font-semibold leading-6 text-white hover:text-orange-500"
+            }
           >
             About Us
-          </a>
-          <a
-            onClick={() => {
-              props.handleClick("gitpg");
-            }}
-            href="#"
-            className="text-sm font-semibold leading-6 text-white hover:text-orange-500"
+          </NavLink>
+          <NavLink
+            to="/contact-us"
+            className={({ isActive }) =>
+              isActive
+                ? "scale-105 text-orange-500"
+                : "text-sm font-semibold leading-6 text-white hover:text-orange-500"
+            }
           >
             Get in Touch
-          </a>
+          </NavLink>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
