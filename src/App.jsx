@@ -11,7 +11,8 @@ import ProductPage from "./pages/ProductPage/index.jsx";
 import ContactUs from "./pages/ContactUs/index.jsx";
 import AboutUs from "./pages/AboutUs/index.jsx";
 import RootLayout from "./layouts/RootLayout.jsx";
-import Error from "./pages/Error/Error.jsx";
+import Error from "./pages/Error/index.jsx";
+import FAQ from "./pages/FAQ/index.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { path: "/", element: <HomePage /> },
+      { path: "/faq", element: <FAQ /> },
       { path: "/about-us", element: <AboutUs /> },
       { path: "/contact-us", element: <ContactUs /> },
     ],
