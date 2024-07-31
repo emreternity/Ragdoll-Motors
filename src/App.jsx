@@ -1,4 +1,4 @@
-import "./App.css";
+import "./assets/App.css";
 import { useState } from "react";
 import Header from "./Header.jsx";
 import Page from "./Page.jsx";
