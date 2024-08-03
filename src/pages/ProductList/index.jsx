@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { fetchMotorcyclesData } from "../../store/product-actions";
 import { fetchMuscleData } from "../../store/product-actions";
 import { fetchSportsData } from "../../store/product-actions";
+import { Link } from "react-router-dom";
 
 function ProductList() {
   const dispatch = useDispatch();
@@ -17,11 +18,11 @@ function ProductList() {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchSportsData());
+    dispatch(fetchMotorcyclesData());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchMotorcyclesData());
+    dispatch(fetchSportsData());
   }, [dispatch]);
 
   const productChoose = () => {
@@ -38,8 +39,6 @@ function ProductList() {
   };
 
   const PRODUCT_LIST = Object.values(productChoose());
-
-  console.log(PRODUCT_LIST);
 
   return (
     <div>
@@ -61,22 +60,23 @@ function ProductList() {
 
           <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {PRODUCT_LIST.map((product) => (
-              <ProductCard
-                key={product.model}
-                model={product.model}
-                price={product.price}
-                speed={product.speed}
-                frontQuarter={product.images.frontQuarter}
-                rearQuarter={product.images.rearQuarter}
-                front={product.images.front}
-                rear={product.images.rear}
-                side={product.images.side}
-                manufacturer={product.manufacturer}
-                seats={product.seats}
-                topSpeed={product.topSpeed}
-                acceleration={product.acceleration}
-                handling={product.handling}
-              />
+              <Link to={"/products/" + product.model}>
+                <ProductCard
+                  model={product.model}
+                  price={product.price}
+                  speed={product.speed}
+                  frontQuarter={product.images.frontQuarter}
+                  rearQuarter={product.images.rearQuarter}
+                  front={product.images.front}
+                  rear={product.images.rear}
+                  side={product.images.side}
+                  manufacturer={product.manufacturer}
+                  seats={product.seats}
+                  topSpeed={product.topSpeed}
+                  acceleration={product.acceleration}
+                  handling={product.handling}
+                />
+              </Link>
             ))}
           </ul>
         </div>

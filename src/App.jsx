@@ -36,8 +36,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const dispatch = useDispatch();
-
   return (
     <body id="bg" className="h-full">
       <RouterProvider router={router} />

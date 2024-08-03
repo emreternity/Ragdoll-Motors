@@ -2,44 +2,38 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { fetchSingleData } from "../../store/product-actions";
 
-const ProductPage = (props) => {
+const ProductPage = () => {
   const dispatch = useDispatch();
 
   const params = useParams();
+  const single = params.productModel;
 
-  imgfrontQuarter: {
-    props.frontQuarter;
-  }
-  imgrearQuarter: {
-    props.rearQuarter;
-  }
-  imgfront: {
-    props.front;
-  }
-  imgrear: {
-    props.rear;
-  }
-  imgside: {
-    props.side;
-  }
+  const category = useSelector((state) => state.products.single);
 
-  const [images, setImages] = useState({
-    frontQuarter: imgfrontQuarter,
-    rearQuarter: imgfront,
-    front: imgfront,
-    rear: imgrear,
-    side: imgside,
-  });
+  const singleImages = useSelector((state) => state.products.singleImg);
+
+  useEffect(() => {
+    dispatch(fetchSingleData(single));
+  }, [dispatch]);
+
+  const images = {
+    img1: singleImages.frontQuarter,
+    img2: singleImages.rearQuarter,
+    img3: singleImages.front,
+    img4: singleImages.rear,
+  };
 
   const [activeImg, setActiveImage] = useState(images.img1);
 
   const addToCartHandler = () => {
     dispatch(
       cartActions.addItemToCart({
-        id: props.id,
-        model: props.model,
-        price: props.price,
+        model: category.model,
+        price: category.price,
       })
     );
   };
@@ -84,9 +78,9 @@ const ProductPage = (props) => {
         <div className="flex flex-col gap-4 lg:w-2/4">
           <div>
             <span className=" text-orange-500 font-semibold">
-              {props.manufacturer}'s Masterpiece
+              {category.manufacturer}'s Masterpiece
             </span>
-            <h1 className="text-3xl font-bold text-white">{props.name}</h1>
+            <h1 className="text-3xl font-bold text-white">{category.name}</h1>
           </div>
           <p className="text-white">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae

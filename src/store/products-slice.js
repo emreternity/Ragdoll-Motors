@@ -4,8 +4,10 @@ const productsSlice = createSlice({
   name: "products",
   initialState: {
     muscle: {},
-    motorcycles: {},
     sports: {},
+    motorcycles: {},
+    single: {},
+    singleImg: {},
   },
   reducers: {
     replaceProductsMuscle(state, action) {
@@ -19,6 +21,13 @@ const productsSlice = createSlice({
     replaceProductsMotorcycles(state, action) {
       const newProducts = action.payload;
       state.motorcycles = newProducts;
+    },
+    replaceProductsSingle(state, action) {
+      const newProducts = action.payload;
+      const newImages = newProducts.images;
+
+      state.singleImg = newImages;
+      state.single = newProducts;
     },
   },
 });
