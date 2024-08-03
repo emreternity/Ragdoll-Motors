@@ -3,12 +3,22 @@ import { createSlice } from "@reduxjs/toolkit";
 const productsSlice = createSlice({
   name: "products",
   initialState: {
-    items: {},
+    muscle: {},
+    motorcycles: {},
+    sports: {},
   },
   reducers: {
-    replaceProducts(state, action) {
+    replaceProductsMuscle(state, action) {
       const newProducts = action.payload;
-      state.items = newProducts;
+      state.muscle = newProducts;
+    },
+    replaceProductsSports(state, action) {
+      const newProducts = action.payload;
+      state.sports = newProducts;
+    },
+    replaceProductsMotorcycles(state, action) {
+      const newProducts = action.payload;
+      state.motorcycles = newProducts;
     },
   },
 });

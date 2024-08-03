@@ -35,20 +35,20 @@ import {
 
 const products = [
   {
-    name: "American Bikes",
+    name: "Motorcycles",
     description: "Vs screamin' out excitement!",
     href: "#",
     icon: "us",
   },
   {
-    name: "American Cars",
+    name: "Muscle",
     description: "Hit the road Jack!",
     href: "#",
     icon: "us",
   },
   {
-    name: "JDM Cars",
-    description: "Fast and Japanese (a little furious too)",
+    name: "Sports",
+    description: "Fast and Furious!",
     href: "#",
     icon: "jp",
   },
@@ -99,12 +99,9 @@ export default function Header(props) {
                     key={item.name}
                     className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-orange-800"
                   >
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-orange-500 group-hover:">
-                      <span className={`fi fi-${item.icon}`}></span>
-                    </div>
                     <div className="flex-auto">
                       <NavLink
-                        to="/error"
+                        to={"/product-list/" + item.name.toLowerCase()}
                         className={({ isActive }) =>
                           isActive
                             ? "scale-105 text-orange-500"

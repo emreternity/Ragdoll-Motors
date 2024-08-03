@@ -17,7 +17,6 @@ import ShoppingCart from "./pages/ShoppingCart/index.jsx";
 import ProductList from "./pages/ProductList/index.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchProductsData } from "./store/product-actions.js";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +29,7 @@ const router = createBrowserRouter([
       { path: "/about-us", element: <AboutUs /> },
       { path: "/contact-us", element: <ContactUs /> },
       { path: "/cart", element: <ShoppingCart /> },
-      { path: "/product-list", element: <ProductList /> },
+      { path: "/product-list/:productCategory", element: <ProductList /> },
       { path: "/products/:productModel", element: <ProductPage /> },
     ],
   },
@@ -39,9 +38,6 @@ const router = createBrowserRouter([
 function App() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchProductsData());
-  }, [dispatch]);
   return (
     <body id="bg" className="h-full">
       <RouterProvider router={router} />
