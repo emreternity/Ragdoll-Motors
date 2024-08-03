@@ -1,14 +1,48 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../store/cart-slice";
+import { useParams } from "react-router-dom";
 
 const ProductPage = (props) => {
+  const dispatch = useDispatch();
+
+  const params = useParams();
+
+  imgfrontQuarter: {
+    props.frontQuarter;
+  }
+  imgrearQuarter: {
+    props.rearQuarter;
+  }
+  imgfront: {
+    props.front;
+  }
+  imgrear: {
+    props.rear;
+  }
+  imgside: {
+    props.side;
+  }
+
   const [images, setImages] = useState({
-    img1: "https://www.auto-data.net/images/f38/Dodge-Challenger-III_2.jpg",
-    img2: "https://www.auto-data.net/images/f126/Dodge-Challenger-III.jpg",
-    img3: "https://www.auto-data.net/images/f41/Dodge-Challenger-III.jpg",
-    img4: "https://www.auto-data.net/images/f62/Dodge-Challenger-III.jpg",
+    frontQuarter: imgfrontQuarter,
+    rearQuarter: imgfront,
+    front: imgfront,
+    rear: imgrear,
+    side: imgside,
   });
 
   const [activeImg, setActiveImage] = useState(images.img1);
+
+  const addToCartHandler = () => {
+    dispatch(
+      cartActions.addItemToCart({
+        id: props.id,
+        model: props.model,
+        price: props.price,
+      })
+    );
+  };
 
   return (
     <section className=" py-20">
@@ -50,11 +84,9 @@ const ProductPage = (props) => {
         <div className="flex flex-col gap-4 lg:w-2/4">
           <div>
             <span className=" text-orange-500 font-semibold">
-              Dodge's Masterpiece
+              {props.manufacturer}'s Masterpiece
             </span>
-            <h1 className="text-3xl font-bold text-white">
-              2008 Challenger III
-            </h1>
+            <h1 className="text-3xl font-bold text-white">{props.name}</h1>
           </div>
           <p className="text-white">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
@@ -64,7 +96,10 @@ const ProductPage = (props) => {
           </p>
           <h6 className="text-2xl font-semibold text-white">$ 19999.00</h6>
           <div className="flex flex-row items-center gap-12 py-3">
-            <button className="bg-orange-500 hover:bg-orange-200 text-orange-200 hover:text-orange-500 font-semibold py-3 px-16 rounded-xl h-full">
+            <button
+              onClick={addToCartHandler}
+              className="bg-orange-500 hover:bg-orange-200 text-orange-200 hover:text-orange-500 font-semibold py-3 px-16 rounded-xl h-full"
+            >
               Add to Cart
             </button>
           </div>

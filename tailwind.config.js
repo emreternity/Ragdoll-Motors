@@ -15,10 +15,13 @@ export default {
     "./index.html",
     "./src/pages/Error/index.jsx",
     "./src/pages/FAQ/index.jsx",
+    "./src/pages/ShoppingCart/index.jsx",
+    "./src/pages/ProductList/index.jsx",
+    "./src/pages/ProductList/ProductCard.jsx",
     flowbite.content(),
   ],
   theme: {
     extend: {},
   },
-  plugins: [flowbite.plugin()],
+  plugins: [flowbite.plugin(), "@tailwindcss/forms"],
 };

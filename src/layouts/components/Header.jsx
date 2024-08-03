@@ -30,6 +30,7 @@ import {
   ChevronDownIcon,
   PhoneIcon,
   PlayCircleIcon,
+  ShoppingBagIcon,
 } from "@heroicons/react/20/solid";
 
 const products = [
@@ -152,14 +153,16 @@ export default function Header(props) {
             Get in Touch
           </NavLink>
         </PopoverGroup>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a
-            href="#"
-            className="text-sm font-semibold leading-6 text-white hover:text-orange-500"
-          >
-            Search <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
+        <NavLink
+          to="/cart"
+          className={({ isActive }) =>
+            isActive
+              ? " text-orange-500 size-5 mr-1 lg:flex lg:flex-1 lg:justify-end"
+              : "text-white hover:text-orange-500 size-5 mr-1 lg:flex lg:flex-1 lg:justify-end"
+          }
+        >
+          <ShoppingBagIcon />
+        </NavLink>
       </nav>
       <Dialog
         open={mobileMenuOpen}
