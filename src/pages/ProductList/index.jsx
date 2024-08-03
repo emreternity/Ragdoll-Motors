@@ -1,82 +1,15 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-
-const PRODUCTS_LIST = [
-  {
-    images: {
-      frontQuarter:
-        "https://vignette.wikia.nocookie.net/gtawiki/images/1/1e/Vigero_GTAV_frontquarter.png/revision/latest/scale-to-width-down/210",
-      rearQuarter:
-        "https://vignette.wikia.nocookie.net/gtawiki/images/9/9b/Vigero_GTAV_rearquarter.png/revision/latest/scale-to-width-down/210",
-      front:
-        "https://vignette.wikia.nocookie.net/gtawiki/images/2/2a/Vigero_GTAV_front.png/revision/latest/scale-to-width-down/210",
-      rear: "https://vignette.wikia.nocookie.net/gtawiki/images/5/56/Vigero_GTAV_rear.png/revision/latest/scale-to-width-down/210",
-      side: "https://vignette.wikia.nocookie.net/gtawiki/images/8/87/Vigero_GTAV_side.png/revision/latest/scale-to-width-down/210",
-    },
-    manufacturer: "declasse",
-    model: "vigero",
-    seats: 2,
-    price: 21000,
-    topSpeed: {
-      mph: 112,
-      kmh: 180,
-    },
-    speed: 75.12,
-    acceleration: 72.5,
-    braking: 26.67,
-    handling: 62.12,
-  },
-  {
-    images: {
-      frontQuarter:
-        "https://vignette.wikia.nocookie.net/gtawiki/images/1/18/VirgoClassicCustom-GTAO-FrontQuarter.png/revision/latest/scale-to-width-down/210",
-      rearQuarter:
-        "https://vignette.wikia.nocookie.net/gtawiki/images/c/ce/VirgoClassicCustom-GTAO-RearQuarter.png/revision/latest/scale-to-width-down/210",
-      front:
-        "https://vignette.wikia.nocookie.net/gtawiki/images/b/b6/VirgoClassicCustom-GTAO-Front.png/revision/latest/scale-to-width-down/210",
-      rear: "https://vignette.wikia.nocookie.net/gtawiki/images/9/93/VirgoClassicCustom-GTAO-Rear.png/revision/latest/scale-to-width-down/210",
-      side: "https://vignette.wikia.nocookie.net/gtawiki/images/8/8a/VirgoClassicCustom-GTAO-Side.png/revision/latest/scale-to-width-down/210",
-    },
-    manufacturer: "dundreary",
-    model: "virgo2",
-    seats: 2,
-    price: 240000,
-    topSpeed: {
-      mph: 104,
-      kmh: 167,
-    },
-    speed: 71.9,
-    acceleration: 52.5,
-    braking: 23.33,
-    handling: 62.12,
-  },
-  {
-    images: {
-      frontQuarter:
-        "https://vignette.wikia.nocookie.net/gtawiki/images/d/d2/VirgoClassic-GTAO-FrontQuarter.png/revision/latest/scale-to-width-down/210",
-      rearQuarter:
-        "https://vignette.wikia.nocookie.net/gtawiki/images/c/c4/VirgoClassic-GTAO-RearQuarter.png/revision/latest/scale-to-width-down/210",
-      front:
-        "https://vignette.wikia.nocookie.net/gtawiki/images/0/0e/VirgoClassic-GTAO-Front.png/revision/latest/scale-to-width-down/210",
-      rear: "https://vignette.wikia.nocookie.net/gtawiki/images/2/20/VirgoClassic-GTAO-Rear.png/revision/latest/scale-to-width-down/210",
-      side: "https://vignette.wikia.nocookie.net/gtawiki/images/c/c9/VirgoClassic-GTAO-Side.png/revision/latest/scale-to-width-down/210",
-    },
-    manufacturer: "dundreary",
-    model: "virgo3",
-    seats: 2,
-    price: 165000,
-    topSpeed: {
-      mph: 96,
-      kmh: 154,
-    },
-    speed: 71.9,
-    acceleration: 52.75,
-    braking: 24,
-    handling: 63.64,
-  },
-];
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 function ProductList() {
+  const dispatch = useDispatch();
+
+  const productsItems = useSelector((state) => state.products.items);
+  const PRODUCT_LIST = Object.values(productsItems);
+  console.log(PRODUCT_LIST);
+
   return (
     <div>
       <section>
@@ -100,17 +33,17 @@ function ProductList() {
           </div>
 
           <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {PRODUCTS_LIST.map((product) => (
+            {PRODUCT_LIST.map((product) => (
               <ProductCard
                 key={product.model}
                 model={product.model}
                 price={product.price}
                 speed={product.speed}
                 frontQuarter={product.images.frontQuarter}
-                rearQuarter={product.rearQuarter}
-                front={product.front}
-                rear={product.rear}
-                side={product.side}
+                rearQuarter={product.images.rearQuarter}
+                front={product.images.front}
+                rear={product.images.rear}
+                side={product.images.side}
                 manufacturer={product.manufacturer}
                 seats={product.seats}
                 topSpeed={product.topSpeed}

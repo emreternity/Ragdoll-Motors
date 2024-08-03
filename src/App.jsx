@@ -15,6 +15,9 @@ import Error from "./pages/Error/index.jsx";
 import FAQ from "./pages/FAQ/index.jsx";
 import ShoppingCart from "./pages/ShoppingCart/index.jsx";
 import ProductList from "./pages/ProductList/index.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchProductsData } from "./store/product-actions.js";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +37,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [currPage, setPage] = useState("indexpg");
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchProductsData());
+  }, [dispatch]);
   return (
     <body id="bg" className="h-full">
       <RouterProvider router={router} />
