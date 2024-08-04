@@ -3,27 +3,13 @@ import ProductCard from "./ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchMotorcyclesData } from "../../store/product-actions";
-import { fetchMuscleData } from "../../store/product-actions";
-import { fetchSportsData } from "../../store/product-actions";
+
 import { Link } from "react-router-dom";
 
 function ProductList() {
   const dispatch = useDispatch();
 
   const params = useParams();
-
-  useEffect(() => {
-    dispatch(fetchMuscleData());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(fetchMotorcyclesData());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(fetchSportsData());
-  }, [dispatch]);
 
   const productChoose = () => {
     if (params.productCategory === "muscle") {
@@ -37,9 +23,7 @@ function ProductList() {
       return productItems;
     }
   };
-
   const PRODUCT_LIST = Object.values(productChoose());
-
   return (
     <div>
       <section>
@@ -60,7 +44,14 @@ function ProductList() {
 
           <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {PRODUCT_LIST.map((product) => (
-              <Link to={"/products/" + product.model}>
+              <Link
+                to={
+                  "/product-list/" +
+                  params.productCategory +
+                  "/" +
+                  product.model
+                }
+              >
                 <ProductCard
                   model={product.model}
                   price={product.price}

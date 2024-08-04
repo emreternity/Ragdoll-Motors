@@ -7,6 +7,8 @@ function ShoppingCart() {
   const cartQuantity = useSelector((state) => state.cart.totalQuantity);
   const cartItems = useSelector((state) => state.cart.items);
 
+  console.log(cartItems);
+
   return (
     <div>
       <section className="h-full flex items-center">

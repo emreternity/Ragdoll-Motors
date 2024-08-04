@@ -10,15 +10,24 @@ const cartSlice = createSlice({
     addItemToCart(state, action) {
       const newItem = action.payload;
       const existingItem = state.items.find(
-        (item) => item.model === item.model
+        (item) => item.model === newItem.model
       );
       state.totalQuantity++;
       if (!existingItem) {
         state.items.push({
           model: newItem.model,
           price: newItem.price,
-          quantity: 1,
-          totalPrice: newItem.price,
+          speed: newItem.speed,
+          frontQuarter: newItem.images.frontQuarter,
+          rearQuarter: newItem.images.rearQuarter,
+          front: newItem.images.front,
+          rear: newItem.images.rear,
+          side: newItem.images.side,
+          manufacturer: newItem.manufacturer,
+          seats: newItem.seats,
+          topSpeed: newItem.topSpeed,
+          acceleration: newItem.acceleration,
+          handling: newItem.handling,
         });
       } else {
         existingItem.quantity = existingItem.quantity++;

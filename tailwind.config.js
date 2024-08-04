@@ -18,6 +18,7 @@ export default {
     "./src/pages/ShoppingCart/index.jsx",
     "./src/pages/ProductList/index.jsx",
     "./src/pages/ProductList/ProductCard.jsx",
+    "./src/pages/ProductDetails/index.jsx",
     flowbite.content(),
   ],
   theme: {

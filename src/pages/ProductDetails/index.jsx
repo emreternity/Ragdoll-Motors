@@ -4,36 +4,64 @@ import { cartActions } from "../../store/cart-slice";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { fetchSingleData } from "../../store/product-actions";
 
 const ProductPage = () => {
   const dispatch = useDispatch();
 
   const params = useParams();
-  const single = params.productModel;
 
-  const category = useSelector((state) => state.products.single);
+  const productModel = params.productModel;
 
-  const singleImages = useSelector((state) => state.products.singleImg);
+  const productChoose = () => {
+    if (params.productCategory === "muscle") {
+      const productItems = useSelector((state) => state.products.muscle);
+      return productItems;
+    } else if (params.productCategory === "sports") {
+      const productItems = useSelector((state) => state.products.sports);
+      return productItems;
+    } else if (params.productCategory === "motorcycles") {
+      const productItems = useSelector((state) => state.products.motorcycles);
+      return productItems;
+    }
+  };
 
-  useEffect(() => {
-    dispatch(fetchSingleData(single));
-  }, [dispatch]);
+  const productsData = productChoose();
+  const productSingle = findByModelName(productModel);
+  const singleImages = productSingle["images"];
 
-  const images = {
+  function findByModelName(modelName) {
+    for (let key in productsData) {
+      if (productsData[key].model === modelName) {
+        return productsData[key];
+      }
+    }
+    return null;
+  }
+
+  const imgs = {
     img1: singleImages.frontQuarter,
     img2: singleImages.rearQuarter,
     img3: singleImages.front,
     img4: singleImages.rear,
   };
-
-  const [activeImg, setActiveImage] = useState(images.img1);
+  const [activeImg, setActiveImage] = useState(imgs.img1);
 
   const addToCartHandler = () => {
     dispatch(
       cartActions.addItemToCart({
-        model: category.model,
-        price: category.price,
+        model: productSingle.model,
+        price: productSingle.price,
+        speed: productSingle.speed,
+        frontQuarter: productSingle.images.frontQuarter,
+        rearQuarter: productSingle.images.rearQuarter,
+        front: productSingle.images.front,
+        rear: productSingle.images.rear,
+        side: productSingle.images.side,
+        manufacturer: productSingle.manufacturer,
+        seats: productSingle.seats,
+        topSpeed: productSingle.topSpeed,
+        acceleration: productSingle.acceleration,
+        handling: productSingle.handling,
       })
     );
   };
@@ -49,28 +77,28 @@ const ProductPage = () => {
           />
           <div className="flex flex-row justify-between h-24">
             <img
-              src={images.img1}
+              src={imgs.img1}
               alt=""
               className="w-35 h-24 rounded-md cursor-pointer"
-              onClick={() => setActiveImage(images.img1)}
+              onClick={() => setActiveImage(imgs.img1)}
             />
             <img
-              src={images.img2}
+              src={imgs.img2}
               alt=""
               className="w-35 h-24 rounded-md cursor-pointer"
-              onClick={() => setActiveImage(images.img2)}
+              onClick={() => setActiveImage(imgs.img2)}
             />
             <img
-              src={images.img3}
+              src={imgs.img3}
               alt=""
               className="w-35 h-24 rounded-md cursor-pointer"
-              onClick={() => setActiveImage(images.img3)}
+              onClick={() => setActiveImage(imgs.img3)}
             />
             <img
-              src={images.img4}
+              src={imgs.img4}
               alt=""
               className="w-35 h-24 rounded-md cursor-pointer"
-              onClick={() => setActiveImage(images.img4)}
+              onClick={() => setActiveImage(imgs.img4)}
             />
           </div>
         </div>
@@ -78,17 +106,18 @@ const ProductPage = () => {
         <div className="flex flex-col gap-4 lg:w-2/4">
           <div>
             <span className=" text-orange-500 font-semibold">
-              {category.manufacturer}'s Masterpiece
+              {productSingle.manufacturer.charAt(0).toUpperCase() +
+                productSingle.manufacturer.slice(1)}
+              's Masterpiece
             </span>
-            <h1 className="text-3xl font-bold text-white">{category.name}</h1>
+            <p className="text-2xl font-bold text-white">
+              {productSingle.model.charAt(0).toUpperCase() +
+                productSingle.model.slice(1)}
+            </p>
           </div>
-          <p className="text-white">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-            cumque laboriosam, aliquid consequuntur modi asperiores dolore nobis
-            suscipit, deserunt animi repellendus harum iste ducimus et quia a
-            eum nemo fugiat!
-          </p>
-          <h6 className="text-2xl font-semibold text-white">$ 19999.00</h6>
+          <h6 className="text-2xl font-semibold text-white">
+            ${productSingle.price}
+          </h6>
           <div className="flex flex-row items-center gap-12 py-3">
             <button
               onClick={addToCartHandler}
