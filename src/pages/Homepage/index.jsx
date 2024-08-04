@@ -1,4 +1,5 @@
 import "../../assets/Homepage.css";
+import { Link } from "react-router-dom";
 
 export default function HomePage(props) {
   return (
@@ -13,7 +14,8 @@ export default function HomePage(props) {
               We take care of and resell vehicles in amazing condition. Approved
               by our happy customers.
             </p>
-            <a
+            <Link
+              to="/product-list/muscle"
               href="#"
               className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white hover:text-orange-500 rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
             >
@@ -30,13 +32,7 @@ export default function HomePage(props) {
                   clipRule="evenodd"
                 ></path>
               </svg>
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-orange-200 hover:text-orange-500 border bg-orange-500 border-orange-300 rounded-lg hover:bg-orange-300 focus:ring-4 focus:ring-neutral-900 dark:text-neutral-900 dark:border-neutral-200 dark:hover:bg-orange-300 dark:focus:ring-neutral-300"
-            >
-              Buy a ride
-            </a>
+            </Link>
           </div>
           <div className="sm:w-auto md:col-span-5 flex justify-center">
             <img

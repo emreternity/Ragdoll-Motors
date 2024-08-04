@@ -30,24 +30,25 @@ import {
   ChevronDownIcon,
   PhoneIcon,
   PlayCircleIcon,
+  ShoppingBagIcon,
 } from "@heroicons/react/20/solid";
 
 const products = [
   {
-    name: "American Bikes",
+    name: "Motorcycles",
     description: "Vs screamin' out excitement!",
     href: "#",
     icon: "us",
   },
   {
-    name: "American Cars",
+    name: "Muscle",
     description: "Hit the road Jack!",
     href: "#",
     icon: "us",
   },
   {
-    name: "JDM Cars",
-    description: "Fast and Japanese (a little furious too)",
+    name: "Sports",
+    description: "Fast and Furious!",
     href: "#",
     icon: "jp",
   },
@@ -98,12 +99,9 @@ export default function Header(props) {
                     key={item.name}
                     className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-orange-800"
                   >
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-orange-500 group-hover:">
-                      <span className={`fi fi-${item.icon}`}></span>
-                    </div>
                     <div className="flex-auto">
                       <NavLink
-                        to="/error"
+                        to={"/product-list/" + item.name.toLowerCase()}
                         className={({ isActive }) =>
                           isActive
                             ? "scale-105 text-orange-500"
@@ -152,14 +150,16 @@ export default function Header(props) {
             Get in Touch
           </NavLink>
         </PopoverGroup>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a
-            href="#"
-            className="text-sm font-semibold leading-6 text-white hover:text-orange-500"
-          >
-            Search <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
+        <NavLink
+          to="/cart"
+          className={({ isActive }) =>
+            isActive
+              ? " text-orange-500 size-5 mr-1 lg:flex lg:flex-1 lg:justify-end"
+              : "text-white hover:text-orange-500 size-5 mr-1 lg:flex lg:flex-1 lg:justify-end"
+          }
+        >
+          <ShoppingBagIcon />
+        </NavLink>
       </nav>
       <Dialog
         open={mobileMenuOpen}
