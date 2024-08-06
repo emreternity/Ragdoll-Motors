@@ -120,16 +120,6 @@ export default function Header(props) {
           </Popover>
 
           <NavLink
-            to="/error"
-            className={({ isActive }) =>
-              isActive
-                ? "scale-105 text-orange-500"
-                : "text-sm font-semibold leading-6 text-white hover:text-orange-500"
-            }
-          >
-            Our Dealers
-          </NavLink>
-          <NavLink
             to="/about-us"
             className={({ isActive }) =>
               isActive

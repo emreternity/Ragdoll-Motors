@@ -1,21 +1,33 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { cartActions } from "../../store/cart-slice";
 
-function CartCard(props) {
+function CartCard({ item }) {
+  const dispatch = useDispatch();
+
+  const removeItemHandler = () => {
+    dispatch(cartActions.removeItemFromCart(item.model));
+  };
+
   return (
     <li className="flex items-center gap-4">
       <img
-        src={props.frontQuarter}
+        src={item.frontQuarter}
         alt=""
         className="size-16 rounded object-cover"
       />
 
       <div>
-        <h3 className="text-sm text-orange-500">{props.model}</h3>
+        <h3 className="text-sm text-orange-500">{item.model}</h3>
 
         <dl className="mt-0.5 space-y-px text-[10px] text-white">
           <div>
-            <dt className="inline">{props.manufacturer}</dt>
-            <dd className="inline">{props.price}</dd>
+            <dt className="inline">{item.manufacturer}</dt>
+            <dd className="inline">
+              {" - $"}
+              {item.price}
+            </dd>
           </div>
         </dl>
       </div>
@@ -23,13 +35,16 @@ function CartCard(props) {
       <div className="flex flex-1 items-center justify-end gap-2">
         <span
           id="Line1Qty"
-          className="h-8 w-12 rounded border-orange-200 bg-orange-50 p-0 text-center text-xs text-black [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+          className="flex items-center justify-center h-8 w-12 rounded border-orange-200 bg-orange-50 p-0 text-center text-xs text-black [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
         >
           {" "}
-          quantity
+          {item.quantity}
         </span>
 
-        <button className="text-white transition hover:text-orange-500">
+        <button
+          onClick={removeItemHandler}
+          className="text-white transition hover:text-orange-500"
+        >
           <span className="sr-only">Remove item</span>
 
           <svg
