@@ -52,16 +52,17 @@ const ProductPage = () => {
         model: productSingle.model,
         price: productSingle.price,
         speed: productSingle.speed,
-        frontQuarter: productSingle.images.frontQuarter,
-        rearQuarter: productSingle.images.rearQuarter,
-        front: productSingle.images.front,
-        rear: productSingle.images.rear,
-        side: productSingle.images.side,
+        frontQuarter: imgs.img1,
+        rearQuarter: imgs.img2,
+        front: imgs.img3,
+        rear: imgs.img4,
         manufacturer: productSingle.manufacturer,
         seats: productSingle.seats,
         topSpeed: productSingle.topSpeed,
         acceleration: productSingle.acceleration,
         handling: productSingle.handling,
+        quantity: 1,
+        totalPrice: productSingle.price,
       })
     );
   };

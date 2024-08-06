@@ -1,13 +1,16 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import CartCard from "./CartCard";
+import cartSlice from "../../store/cart-slice";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 function ShoppingCart() {
   const dispatch = useDispatch();
   const cartQuantity = useSelector((state) => state.cart.totalQuantity);
   const cartItems = useSelector((state) => state.cart.items);
+  const cartTotalPrice = useSelector((state) => state.cart.totalPrice);
 
-  console.log(cartItems);
+  let totalPrice = 0;
 
   return (
     <div>
@@ -24,12 +27,22 @@ function ShoppingCart() {
               <ul className="space-y-4">
                 {cartItems.map((item) => (
                   <CartCard
-                    key={item.model}
                     item={{
                       model: item.model,
-                      quantity: item.quantity,
-                      totalPrice: item.totalPrice,
                       price: item.price,
+                      speed: item.speed,
+                      frontQuarter: item.frontQuarter,
+                      rearQuarter: item.rearQuarter,
+                      front: item.front,
+                      rear: item.rear,
+                      side: item.side,
+                      manufacturer: item.manufacturer,
+                      seats: item.seats,
+                      topSpeed: item.topSpeed,
+                      acceleration: item.acceleration,
+                      handling: item.handling,
+                      quantity: item.quantity,
+                      totalPrice: item.price,
                     }}
                   />
                 ))}
@@ -39,18 +52,16 @@ function ShoppingCart() {
                 <div className="w-screen max-w-lg space-y-4">
                   <dl className="space-y-0.5 text-sm text-white">
                     <div className="flex justify-between">
-                      <dt>Subtotal</dt>
-                      <dd>£250</dd>
+                      <dt>Quantity of All Items</dt>
+                      <dd>{cartQuantity}</dd>
                     </div>
 
-                    <div className="flex justify-between">
-                      <dt>VAT</dt>
-                      <dd>£25</dd>
-                    </div>
-
-                    <div className="flex justify-between !text-base font-medium">
+                    <div className="flex justify-between text-xl font-medium">
                       <dt>Total</dt>
-                      <dd>£200</dd>
+                      <dd>
+                        {"$"}
+                        {cartTotalPrice}
+                      </dd>
                     </div>
                   </dl>
 
