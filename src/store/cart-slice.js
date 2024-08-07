@@ -15,10 +15,10 @@ const totalPrice =
     ? JSON.parse(localStorage.getItem("cartTotal"))
     : 0;
 
-const setCartListFunc = (items, totalAmount, totalQuantity) => {
+const setCartListFunc = (items, totalQuantity, totalPrice) => {
   localStorage.setItem("cartList", JSON.stringify(items));
-  localStorage.setItem("cartTotal", JSON.stringify(totalAmount));
   localStorage.setItem("cartQuantity", JSON.stringify(totalQuantity));
+  localStorage.setItem("cartTotal", JSON.stringify(totalPrice));
 };
 
 const cartSlice = createSlice({
